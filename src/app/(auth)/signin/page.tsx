@@ -1,6 +1,5 @@
+import { SignInCard } from "@/features/auth/signInCard";
 
 export default function SignInPage() {
-  return <div>
-    Sign in page
-  </div>
+  return <SignInCard/>
 }

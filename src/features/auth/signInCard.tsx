@@ -53,10 +53,10 @@ export const SignInCard = () => {
           </Button>
         </form>
       </CardContent>
-      <div className="px-7">
+      <div className="px-7 pt-2">
         <DottedSeparator/>
       </div>
-      <CardContent className="p-7 flex flex-col space-y-4">
+      <CardContent className="px-7 py-2 flex flex-col space-y-4">
         <Button
           variant={"secondary"}
           disabled={false}

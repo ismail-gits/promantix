@@ -84,7 +84,7 @@ export const SignInCard = () => {
               size="lg"
               className="w-full"
             >
-              Login
+              Sign In
             </Button>
           </form>
         </Form>
@@ -100,7 +100,7 @@ export const SignInCard = () => {
           className="w-full"
         >
           <FcGoogle className="mr-2 size-5"/>
-          Login with Google
+          Sign in with Google
         </Button>
         <Button
           variant={"secondary"}
@@ -109,7 +109,7 @@ export const SignInCard = () => {
           className="w-full"
         >
           <FaGithub className="mr-2 size-5"/>
-          Login with Github
+          Sign in with Github
         </Button>
       </CardContent>
       <div className="px-7 ">

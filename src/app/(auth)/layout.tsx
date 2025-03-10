@@ -21,7 +21,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           <Image src={"/promantix-logo-3.png"} height={56} width={152} alt="logo"/>
           <Button asChild variant={"secondary"}>
             <Link href={isSignIn ? '/signup' : '/signin'}>
-              {isSignIn ? "Sign Up" : "Login"}
+              {isSignIn ? "Sign Up" : "Sign In"}
             </Link>
           </Button>
         </nav>

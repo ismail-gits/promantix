@@ -15,7 +15,6 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { signUpSchema } from "../schemas"
 import { useSignup } from "../api/useSignup"
 
-
 export const SignUpCard = () => {
   const { mutate } = useSignup()
 

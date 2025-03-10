@@ -13,9 +13,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
 import { signUpSchema } from "../schemas"
+import { useSignup } from "../api/useSignup"
 
 
 export const SignUpCard = () => {
+  const { mutate } = useSignup()
+
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -26,7 +29,7 @@ export const SignUpCard = () => {
   })
 
   const onSubmit = (values: z.infer<typeof signUpSchema>) => {
-    console.log({values})
+    mutate({ json: values })
   }
 
   return (

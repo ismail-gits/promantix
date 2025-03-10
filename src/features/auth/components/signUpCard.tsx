@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import Link from "next/link"
@@ -34,12 +33,11 @@ export const SignUpCard = () => {
     console.log({values})
   }
 
-
   return (
     <Card className="w-full h-full md:w-[487px] border-none shadow-none">
       <CardHeader className="flex items-center justify-center text-center">
         <CardTitle className="text-2xl">
-          Welcome Back!
+          Sign Up
         </CardTitle>
         <CardDescription>
           By signing up, you agree to our {" "}
@@ -117,7 +115,7 @@ export const SignUpCard = () => {
               size="lg"
               className="w-full"
             >
-              Sign up
+              Sign Up
             </Button>
           </form>
         </Form>
@@ -145,6 +143,17 @@ export const SignUpCard = () => {
           Sign up with Github
         </Button>
       </CardContent>
+      <div className="px-7 ">
+        <DottedSeparator/>
+        <CardContent className="flex items-center justify-center pt-4">
+          <p>
+            Already have an account?
+            <Link href={'/signin'}>
+              <span className="text-blue-700 ">&nbsp;Sign In</span>
+            </Link>
+          </p>
+        </CardContent>
+      </div>
     </Card>
   )
 }

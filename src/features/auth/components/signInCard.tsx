@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod" 
+import Link from "next/link"
  
 import { DottedSeparator } from "@/components/dotted-separator"
 import { Button } from "@/components/ui/button"
@@ -112,6 +113,17 @@ export const SignInCard = () => {
           Login with Github
         </Button>
       </CardContent>
+      <div className="px-7 ">
+        <DottedSeparator/>
+        <CardContent className="flex items-center justify-center pt-4">
+          <p>
+            Don't have an account?
+            <Link href={'/signup'}>
+              <span className="text-blue-700 ">&nbsp;Sign Up</span>
+            </Link>
+          </p>
+        </CardContent>
+      </div>
     </Card>
   )
 }

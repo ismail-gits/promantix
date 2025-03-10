@@ -1,4 +1,4 @@
-import { SignInCard } from "@/features/auth/signInCard";
+import { SignInCard } from "@/features/auth/components/signInCard";
 
 export default function SignInPage() {
   return <SignInCard/>

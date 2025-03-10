@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { FcGoogle } from "react-icons/fc"
+import { FaGit, FaGithub } from "react-icons/fa"
 
-export const SignInCard = () => {
+export const SignUpCard = () => {
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
 
@@ -63,6 +65,7 @@ export const SignInCard = () => {
           size={"lg"}
           className="w-full"
         >
+          <FcGoogle className="mr-2 size-5"/>
           Login with Google
         </Button>
         <Button
@@ -71,6 +74,7 @@ export const SignInCard = () => {
           size={"lg"}
           className="w-full"
         >
+          <FaGithub className="mr-2 size-5"/>
           Login with Github
         </Button>
       </CardContent>

@@ -1,6 +1,5 @@
+import { SignUpCard } from "@/features/auth/components/signUpCard";
 
 export default function SignUpPage() {
-  return <div>
-    Sign up page
-  </div>
+  return <SignUpCard/>
 }

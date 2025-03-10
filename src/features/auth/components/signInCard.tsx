@@ -1,16 +1,29 @@
 "use client"
 
+import { z } from "zod"
+import { useState } from "react"
+import { FcGoogle } from "react-icons/fc"
+import { FaGithub } from "react-icons/fa"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod" 
+ 
 import { DottedSeparator } from "@/components/dotted-separator"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
-import { FcGoogle } from "react-icons/fc"
-import { FaGit, FaGithub } from "react-icons/fa"
+
+const formSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8).max(256)
+})
 
 export const SignInCard = () => {
-  const [ email, setEmail ] = useState("")
-  const [ password, setPassword ] = useState("")
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: ""
+    }
+  }) 
 
   return (
     <Card className="w-full h-full md:w-[487px] border-none shadow-none">
@@ -27,9 +40,9 @@ export const SignInCard = () => {
           <Input
              required
              type="email"
-             value={email}
+             value=""
              onChange={(e) => {
-              setEmail(e.target.value)
+              
              }}
              placeholder="Enter your email"
              disabled={false}
@@ -37,9 +50,9 @@ export const SignInCard = () => {
           <Input
              required
              type="password"
-             value={password}
+             value=""
              onChange={(e) => {
-              setPassword(e.target.value)
+              
              }}
              placeholder="Enter your password"
              disabled={false}

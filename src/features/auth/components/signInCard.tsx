@@ -27,7 +27,7 @@ export const SignInCard = () => {
   })
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values)
+    console.log({values})
   }
 
   return (

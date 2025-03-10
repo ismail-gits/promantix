@@ -19,11 +19,12 @@ const formSchema = z.object({
 
 export const SignInCard = () => {
   const form = useForm({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: ""
     }
-  }) 
+  })
 
   return (
     <Card className="w-full h-full md:w-[487px] border-none shadow-none">

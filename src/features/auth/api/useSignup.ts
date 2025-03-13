@@ -14,7 +14,7 @@ export const useSignup = () => {
   >({
     mutationFn: async (json) => {
       const response = await client.api.auth.signup.$post(json)
-      return response.json()
+      return await response.json()
     }
   })
 

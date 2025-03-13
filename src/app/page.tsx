@@ -1,20 +1,13 @@
-"use client"
-
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-
-import { useCurrent } from "@/features/auth/api/useCurrent"
+import { getCurrent } from "@/features/auth/actions"
 import { UserButton } from "@/features/auth/components/userButton"
+import { redirect } from "next/navigation"
 
-export default function Home() {
-  const router = useRouter()
-  const { data, isLoading } = useCurrent()
+export default async function Home() {
+  const user = getCurrent()
 
-  useEffect(() => {
-    if (!data && !isLoading) {
-      router.push('/signin')
-    } 
-  }, [data])
+  if (!user) {
+    redirect('signin')
+  }
 
   return (
     <div>

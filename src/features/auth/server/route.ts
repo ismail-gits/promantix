@@ -6,8 +6,14 @@ import { setCookie, deleteCookie } from "hono/cookie"
 import { zValidator } from "@hono/zod-validator"
 import { createAdminClient } from "@/lib/appwrite";
 import { AUTH_COOKIE } from "../constants";
+import { sessionMiddleware } from "@/lib/sessionMiddleware";
 
 const app = new Hono()
+  .get('/current', sessionMiddleware, (c) => {
+    const user = c.get("user")
+
+    return c.json({ user })
+  })
   .post('/signup', zValidator("json", signUpSchema), async (c) => {
     const { name, email, password } = c.req.valid('json')
 
@@ -55,9 +61,13 @@ const app = new Hono()
 
     return c.json({ seccess: true })
   })
-  .post('/signout', (c) => {
+  .post('/signout', sessionMiddleware, async (c) => {
+    const account = c.get("account")
+
     deleteCookie(c, AUTH_COOKIE)
 
+    await account.deleteSession("current")
+    
     return c.json({success: true})
   })
 

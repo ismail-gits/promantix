@@ -17,7 +17,17 @@ import { createMiddleware } from "hono/factory"
 
 import { AUTH_COOKIE } from "@/features/auth/constants"
 
-export const sessonMiddleware = createMiddleware(
+type additionalContext = {
+  Variables: {
+    account: AccountType,
+    databases: DatabasesType,
+    storage: StorageType,
+    users: UsersType,
+    user: Models.User<Models.Preferences>
+  }
+}
+
+export const sessionMiddleware = createMiddleware<additionalContext>(
   async (c, next) => {
     const client = new Client()
       .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)

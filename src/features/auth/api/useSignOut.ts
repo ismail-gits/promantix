@@ -18,9 +18,9 @@ export const useSignout = () => {
       const response = await client.api.auth.signout.$post()
       return await response.json()
     },
-    onSuccess: () => {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["current"] })
       router.refresh()
-      queryClient.invalidateQueries({ queryKey: ["current"] })
     }
   })
 

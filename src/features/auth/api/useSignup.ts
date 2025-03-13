@@ -20,9 +20,9 @@ export const useSignup = () => {
       const response = await client.api.auth.signup.$post(json)
       return await response.json()
     },
-    onSuccess: () => {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["current"] })
       router.refresh()
-      queryClient.invalidateQueries({ queryKey: ["current"] })
     }
   })
 

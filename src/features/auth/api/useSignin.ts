@@ -20,9 +20,9 @@ export const useSignin = () => {
       const response = await client.api.auth.signin.$post(json)
       return await response.json()
     },
-    onSuccess: () => {
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["current"] })
       router.refresh()
-      queryClient.invalidateQueries({ queryKey: ["current"] })
     }
   })
 

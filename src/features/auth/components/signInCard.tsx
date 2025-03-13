@@ -16,7 +16,7 @@ import { signInSchema } from "../schemas"
 import { useSignin } from "../api/useSignin"
 
 export const SignInCard = () => {
-  const { mutate } = useSignin()
+  const { mutate, isPending } = useSignin()
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -80,7 +80,7 @@ export const SignInCard = () => {
               }}
             />
             <Button
-              disabled={false}
+              disabled={isPending}
               size="lg"
               className="w-full"
             >

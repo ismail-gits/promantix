@@ -16,12 +16,13 @@ export const getCurrent = async () => {
       return null
     }
 
+    client.setSession(session.value)
+
     const account = new Account(client)
 
     return await account.get()
   }
-  catch(err) {
-    console.log(err)
+  catch {
     return null
   }
 }

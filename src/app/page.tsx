@@ -4,10 +4,13 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 
 import { useCurrent } from "@/features/auth/api/useCurrent"
+import { Button } from "@/components/ui/button"
+import { useSignout } from "@/features/auth/api/useSignout"
 
 export default function Home() {
   const router = useRouter()
   const { data, isLoading } = useCurrent()
+  const { mutate } = useSignout()
 
   useEffect(() => {
     if (!data && !isLoading) {
@@ -17,8 +20,9 @@ export default function Home() {
 
   return (
     <div>
-      Home Page
-      Only visible to authorized user
+      <Button onClick={() => mutate()}>
+        Signout
+      </Button>
     </div>
   )
 }

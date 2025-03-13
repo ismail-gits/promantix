@@ -1,8 +1,8 @@
 "use client"
 
-import { Loader } from "lucide-react"
+import { Loader, LogOut } from "lucide-react"
 
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 import { DottedSeparator } from "@/components/dotted-separator"
@@ -12,6 +12,7 @@ import { useCurrent } from "../api/useCurrent"
 
 export const UserButton = () => {
   const { data: user, isLoading } = useCurrent()
+  const { mutate: signout } = useSignout()
 
   if (isLoading) {
     return (
@@ -51,8 +52,16 @@ export const UserButton = () => {
             <p className="text-sm font-medium text-neutral-900">
               {name || "User"}
             </p>
+            <p className="text-xs text-neutral-500">
+              {email}
+            </p>
           </div>
         </div>
+        <DottedSeparator className="mb-1"/>
+        <DropdownMenuItem onClick={() => signout()} className="h-10 flex items-center justify-center text-amber-700 font-medium cursor-pointer">
+          <LogOut className="size-4"/>
+          Sign out
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

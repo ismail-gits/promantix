@@ -12,8 +12,9 @@ export const useCurrent = () => {
         return null
       }
 
-      const { user } = await response.json()
-      
+      const { data } = await response.json()
+
+      return data
     }
   })
 

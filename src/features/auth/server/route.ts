@@ -12,7 +12,7 @@ const app = new Hono()
   .get('/current', sessionMiddleware, (c) => {
     const user = c.get("user")
 
-    return c.json({ user })
+    return c.json({ data: user })
   })
   .post('/signup', zValidator("json", signUpSchema), async (c) => {
     const { name, email, password } = c.req.valid('json')
@@ -68,7 +68,7 @@ const app = new Hono()
 
     await account.deleteSession("current")
     
-    return c.json({success: true})
+    return c.json({ success: true })
   })
 
 export default app

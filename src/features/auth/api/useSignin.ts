@@ -21,8 +21,8 @@ export const useSignin = () => {
       return await response.json()
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ["current"] })
       router.refresh()
+      queryClient.invalidateQueries({ queryKey: ["current"] })
     }
   })
 

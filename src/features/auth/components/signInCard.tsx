@@ -27,7 +27,7 @@ export const SignInCard = () => {
   })
 
   const onSubmit = (values: z.infer<typeof signInSchema>) => {
-    mutate({ json: values })
+    mutate({ json: values }) 
   }
 
   return (
@@ -95,7 +95,7 @@ export const SignInCard = () => {
       <CardContent className="px-7 py-2 flex flex-col space-y-4">
         <Button
           variant={"secondary"}
-          disabled={false}
+          disabled={isPending}
           size={"lg"}
           className="w-full"
         >
@@ -104,7 +104,7 @@ export const SignInCard = () => {
         </Button>
         <Button
           variant={"secondary"}
-          disabled={false}
+          disabled={isPending}
           size={"lg"}
           className="w-full"
         >

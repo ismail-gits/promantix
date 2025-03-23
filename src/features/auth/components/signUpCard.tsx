@@ -16,7 +16,7 @@ import { signUpSchema } from "../schemas"
 import { useSignup } from "../api/useSignup"
 
 export const SignUpCard = () => {
-  const { mutate } = useSignup()
+  const { mutate, isPending } = useSignup()
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -109,7 +109,7 @@ export const SignUpCard = () => {
               }}
             />
             <Button
-              disabled={false}
+              disabled={isPending}
               size="lg"
               className="w-full"
             >
@@ -124,7 +124,7 @@ export const SignUpCard = () => {
       <CardContent className="px-7 py-2 flex flex-col space-y-4">
         <Button
           variant={"secondary"}
-          disabled={false}
+          disabled={isPending}
           size={"lg"}
           className="w-full"
         >
@@ -133,7 +133,7 @@ export const SignUpCard = () => {
         </Button>
         <Button
           variant={"secondary"}
-          disabled={false}
+          disabled={isPending}
           size={"lg"}
           className="w-full"
         >

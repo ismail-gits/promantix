@@ -3,6 +3,7 @@ import { InferResponseType } from "hono";
 
 import { client } from "@/lib/rpc";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 type ResponseType = InferResponseType<typeof client.api.auth.signout.$post>
 
@@ -19,8 +20,12 @@ export const useSignout = () => {
       return await response.json()
     },
     onSuccess: () => {
+      toast.success("Signed out successfully. Redirecting...")
       queryClient.invalidateQueries({ queryKey: ["current"] })
       router.refresh()
+    },
+    onError: () => {
+      toast.error("Error while signing out")
     }
   })
 

@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
+
 import { DottedSeparator } from "./dotted-separator"
+import { Navigation } from "./Navigation"
 
 export const Sidebar = () => {
   return (

@@ -12,7 +12,7 @@ export default async function DashboardPage() {
 
   return (
     <div>
-      <UserButton/>
+      This is a home page
     </div>
   )
 }

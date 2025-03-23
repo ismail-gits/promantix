@@ -1,11 +1,11 @@
 import { Navbar } from "@/components/navbar"
 import { Sidebar } from "@/components/Sidebar"
 
-interface dashboardLayoutProps {
+interface DashboardLayoutProps {
   children: React.ReactNode
 }
 
-export default function DashboardLayout({ children }: dashboardLayoutProps) {
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <div className="min-h-screen">
       <div className="flex w-full h-full">

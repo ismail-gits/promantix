@@ -118,7 +118,7 @@ export const SignInCard = () => {
           <p>
             Don't have an account?
             <Link href={'/signup'}>
-              <span className="text-blue-700 ">&nbsp;Sign Up</span>
+              <span className="text-amber-700 ">&nbsp;Sign Up</span>
             </Link>
           </p>
         </CardContent>

@@ -8,12 +8,12 @@ import { zValidator } from "@hono/zod-validator";
 import { DATABASE_ID, IMAGES_BUCKET_ID, WORKSPACES_ID } from "@/config";
 
 const app = new Hono()
-  .post('/', zValidator("json", createWorkspaceSchema), sessionMiddleware, async (c) => {
+  .post('/', zValidator("form", createWorkspaceSchema), sessionMiddleware, async (c) => {
     const databases = c.get("databases")
     const storage = c.get("storage")
     const user = c.get("user")
 
-    const { name, imageUrl } = c.req.valid("json")
+    const { name, imageUrl } = c.req.valid("form")
 
     let uploadedImageUrl: string | undefined
 
